@@ -32,6 +32,8 @@ public:
 	item* RemoveFirst(int num);
 	void RemoveAll(int num);
 	
+	int Locate(int num);
+	
 	bool IsEmpty();
 	void Display();
 	
