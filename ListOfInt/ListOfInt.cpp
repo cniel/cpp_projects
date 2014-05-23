@@ -141,6 +141,22 @@ void ListOfInt::RemoveAll(int num)
 	}
 }
 
+
+int ListOfInt::Locate(int num)
+{
+	item* p = _first;
+	int c = 0;
+	while(p)
+	{
+		if(p->num == num)
+			return c;
+		c ++;
+		p = p->next;
+	}
+	return -1;
+}
+
+
 bool ListOfInt::IsEmpty()
 {
 	if(_first == NULL)
