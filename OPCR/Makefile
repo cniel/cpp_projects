@@ -13,7 +13,6 @@ main.o: *.h
 %.o: %.cpp
 	@$(CXX) -o $@ -c $< $(CXXFLAGS)
 
-# Les dépendances de .PHONY sont forcément reconstruites (utile si un fichier s'appelle clean)
 .PHONY: clean mrproper
     
 clean:
