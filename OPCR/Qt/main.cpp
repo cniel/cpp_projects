@@ -1,21 +1,14 @@
 #include <QApplication>
 #include <QPushButton>
 
+#include "MaFenetre.h"
+
 int main(int argc, char** argv)
 {
-             QApplication app(argc, argv);
-             QPushButton bouton("Salut!\nLa forme?");
+    QApplication app(argc, argv);
 
-             QFont myFont("Purisa", 10, 50, false);
-             myFont.setBold(true);
-             myFont.setFixedPitch(true);
+    MaFenetre fenetre;
+    fenetre.show();
 
-             bouton.setFont(myFont);
-             bouton.setCursor(Qt::PointingHandCursor);
-             bouton.setToolTip("Just to say hello");
-
-             bouton.show();
-
-
-             return app.exec();
+    return app.exec();
 }

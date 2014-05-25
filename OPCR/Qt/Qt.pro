@@ -1,5 +1,9 @@
 QT+=widgets
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    MaFenetre.cpp
+
+HEADERS += \
+    MaFenetre.h
 
