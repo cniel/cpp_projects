@@ -8,6 +8,10 @@
 #include <QLCDNumber>
 #include <QProgressBar>
 
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QFileDialog>
+
 
 class MaFenetre : public QWidget
 {
@@ -22,6 +26,10 @@ public slots:
     void setWidth(int width);
     void setHeight(int height);
     void resetSliders();
+    void tellMaxWidthReached();
+    void askPseudoBox();
+    void askDirBox();
+    void askFileBox();
 
 signals:
     void maxWidth();
@@ -32,6 +40,10 @@ private:
     QLCDNumber* _lcd;
     QProgressBar* _progress;
     QPushButton* _pBouton;
+    QPushButton* _askpseudo;
+    QPushButton* _askdir;
+    QPushButton* _askfile;
+
 };
 
 #endif // MAFENETRE_H
