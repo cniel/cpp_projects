@@ -1,5 +1,7 @@
 #include "MaFenetre.h"
 
+
+
 //==========================================
 //  CONSTRUCTOR
 //==========================================
@@ -17,26 +19,39 @@ MaFenetre::MaFenetre() : QWidget()
     _slider->setValue(400);
 
     _hslider = new QSlider(Qt::Vertical, this);
-    _hslider->setGeometry(250, 20, 30, 150);
-    _hslider->setRange(250, 600);
-    _slider->setValue(400);
+    _hslider->setGeometry(250, 20, 30, 110);
+    _hslider->setRange(300, 600);
+    _hslider->setValue(400);
 
     _progress = new QProgressBar(this);
     _progress->setRange(250, 600);
     _progress->setGeometry(10, 100, 200, 30);
 
+
     _pBouton = new QPushButton("Reset", this);
-    _pBouton->move(10, 220);
+    //_pBouton->move(10, 220);
 
     _askpseudo = new QPushButton("Set Pseudo", this);
-    _askpseudo->move(100, 220);
+    //_askpseudo->move(100, 220);
 
     _askdir = new QPushButton("Set directory", this);
-    _askdir->move(190, 220);
+    //_askdir->move(190, 220);
 
     _askfile = new QPushButton("file Path", this);
-    _askfile->move(300, 220);
+    //_askfile->move(300, 220);
 
+    _askForm = new QPushButton("Formulaire", this);
+
+    QGridLayout* layout = new QGridLayout;
+    layout->addWidget(_pBouton, 0, 0);
+    layout->addWidget(_askpseudo, 0, 1);
+    layout->addWidget(_askdir, 0, 2);
+    layout->addWidget(_askfile, 0, 3);
+
+    layout->addWidget(_askForm, 1, 0, 1, 4);
+
+
+    this->setLayout(layout);
 
     QObject::connect(this, SIGNAL(maxWidth()), this, SLOT(tellMaxWidthReached()));
 
@@ -52,6 +67,19 @@ MaFenetre::MaFenetre() : QWidget()
 
     QObject::connect(_askdir, SIGNAL(clicked()), this, SLOT(askDirBox()));
     QObject::connect(_askfile, SIGNAL(clicked()), this, SLOT(askFileBox()));
+
+
+
+    _form = new QDialog(this);
+        QFormLayout* formlay = new QFormLayout;
+        formlay->addRow("Votre nom", new QLineEdit(_form));
+        formlay->addRow("Votre prenom", new QLineEdit(_form));
+        formlay->addRow("Votre age", new QLineEdit(_form));
+        _form->setLayout(formlay);
+
+    QObject::connect(_askForm, SIGNAL(clicked()), _form, SLOT(exec()));
+
+
 }
 
 //==========================================
@@ -68,6 +96,7 @@ MaFenetre::~MaFenetre()
     delete _askpseudo;
     delete _askdir;
     delete _askfile;
+    delete _form;
 }
 
 //==========================================
@@ -128,6 +157,10 @@ void MaFenetre::askFileBox()
         _askfile->setToolTip(file);
 }
 
+void MaFenetre::displayForm()
+{
+    _form->exec();
+}
 
 //==========================================
 //  METHODS

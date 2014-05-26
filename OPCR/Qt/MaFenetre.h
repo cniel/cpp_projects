@@ -7,6 +7,9 @@
 #include <QSlider>
 #include <QLCDNumber>
 #include <QProgressBar>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QFormLayout>
 
 #include <QMessageBox>
 #include <QInputDialog>
@@ -30,6 +33,7 @@ public slots:
     void askPseudoBox();
     void askDirBox();
     void askFileBox();
+    void displayForm();
 
 signals:
     void maxWidth();
@@ -43,6 +47,10 @@ private:
     QPushButton* _askpseudo;
     QPushButton* _askdir;
     QPushButton* _askfile;
+
+    QPushButton* _askForm;
+
+    QDialog* _form;
 
 };
 
