@@ -30,6 +30,7 @@ public:
 
 public slots:
     void dispClassWindow();
+    void editInclusions(QString text);
 
 
 signals:
@@ -43,6 +44,7 @@ private:
     QGroupBox* _optbox;
         QFormLayout* _optlayout;
             QCheckBox* _inclusions;
+            QLineEdit* _inclusionsedition;
             QCheckBox* _defconstructor;
             QCheckBox* _gendestructor;
 
