@@ -1,5 +1,8 @@
 #include "FenServeur.h"
 
+#define _PORT_ 57000 //remplacer 57000 par RANDOM pour un port au hasard
+#define _RANDOM_ 0
+
 FenServeur::FenServeur()
 {
     //  Widgets
@@ -18,7 +21,7 @@ FenServeur::FenServeur()
 
     // Serveur
     _serveur = new QTcpServer(this);
-    if (!_serveur->listen(QHostAddress::Any, 57000))
+    if (!_serveur->listen(QHostAddress::Any, _PORT_))
     {
         _infoServeur->setText("Le serveur n'a pas pu être démarré. Raison:\n" + _serveur->errorString());
     }

@@ -1,5 +1,7 @@
 #include "FenClient.h"
 
+#define _PORT_ 57000
+
 FenClient::FenClient()
 {
     setupUi();
@@ -118,6 +120,7 @@ void FenClient::setupUi()
     _port = new QSpinBox;
     _port->setAccelerated(true);
     _port->setRange(1, 100000);
+    _port->setValue(_PORT_);
     _buttonConnexion = new QPushButton("Connexion");
     connect(_buttonConnexion, SIGNAL(clicked()), this, SLOT(on_boutonConnexion_clicked()));
     serveurLayout->addWidget(serveurLabel);
